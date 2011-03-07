@@ -5,11 +5,11 @@
 
 	<groupId>de.topicmapslab</groupId>
 	<artifactId>jtm-writer</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>JTMWriter</name>
 
 	<properties>
-		<osgi.version>1.0.0.${maven.build.timestamp}</osgi.version>
+		<osgi.version>1.0.1.${maven.build.timestamp}</osgi.version>
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>		
 	</properties>
