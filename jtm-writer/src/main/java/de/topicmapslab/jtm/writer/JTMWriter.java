@@ -1,11 +1,11 @@
 package de.topicmapslab.jtm.writer;
 
+import org.tmapi.core.Construct;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collection;
-
-import org.tmapi.core.Construct;
 
 /**
  * Author: mhoyer Created: 27.10.2010 17:25:20
@@ -118,7 +118,7 @@ public class JTMWriter {
 	 */
 	@Deprecated
 	public static String getJson(Construct construct) throws IOException {
-		return getJsonAsStream(construct).toString();
+		return getJsonAsStream(construct).toString("UTF-8");
 	}
 
 	/**
@@ -166,7 +166,7 @@ public class JTMWriter {
 	 *             thrown if an I/O error occur
 	 */
 	public static String getJson(Construct construct, JTMVersion version) throws IOException {
-		return getJsonAsStream(construct, version).toString();
+		return getJsonAsStream(construct, version).toString("UTF-8");
 	}
 
 	/**

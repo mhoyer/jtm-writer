@@ -1,25 +1,17 @@
 package de.topicmapslab;
 
-import static junit.framework.Assert.assertEquals;
+import de.topicmapslab.jtm.writer.JTMVersion;
+import de.topicmapslab.jtm.writer.JTMWriter;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.Before;
+import org.tmapi.core.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Collection;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.junit.Before;
-import org.tmapi.core.Association;
-import org.tmapi.core.Construct;
-import org.tmapi.core.Name;
-import org.tmapi.core.Occurrence;
-import org.tmapi.core.Role;
-import org.tmapi.core.Topic;
-import org.tmapi.core.TopicMap;
-import org.tmapi.core.Variant;
-
-import de.topicmapslab.jtm.writer.JTMVersion;
-import de.topicmapslab.jtm.writer.JTMWriter;
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Author: mhoyer Created: 27.10.2010 17:39:06
@@ -66,7 +58,7 @@ public class with_JTMWriter extends with_TopicMap {
 
 	protected JsonNode writeAndRead(Construct construct, JTMVersion version) throws IOException {
 		jtmwriter.write(construct, version).flush();
-		return jsonReader.readTree(out.toString());
+		return jsonReader.readTree(out.toString("UTF-8"));
 	}
 
 	protected JsonNode writeAndRead(Construct construct) throws IOException {
@@ -75,6 +67,6 @@ public class with_JTMWriter extends with_TopicMap {
 
 	protected JsonNode writeAndRead(Collection<Construct> constructs) throws IOException {
 		jtmwriter.write(constructs, JTMVersion.JTM_1_0).flush();
-		return jsonReader.readTree(out.toString());
+		return jsonReader.readTree(out.toString("UTF-8"));
 	}
 }

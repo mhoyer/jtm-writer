@@ -34,6 +34,12 @@ public class when_writing_a_name extends with_JTMWriter {
         assertEquals(name.getValue(), node.get("value").getTextValue());
     }
 
+    @Test public void it_should_write_values_with_special_chars() throws IOException {
+        name = name.getParent().createName("צהü");
+        JsonNode node = writeAndRead(name);
+        assertEquals(name.getValue(), node.get("value").getTextValue());
+    }
+
     @Test public void it_should_write_type() throws IOException {
         JsonNode node = writeAndRead(name);
         assertEquals(
